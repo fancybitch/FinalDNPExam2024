@@ -1,0 +1,16 @@
+@page "/ViewEmails"
+@using Blazor.Data.Models
+@using Blazor.Data
+@inject EmailService emailService
+<h3>ViewEmails</h3>
+
+@code {
+    private List<Email>? emails;
+    private string msg = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        emails = await emailService.GetEmails();
+    }
+    
+}
